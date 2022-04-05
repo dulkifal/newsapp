@@ -92,7 +92,7 @@ class _MyAppState extends State<MyApp> {
                               mainAxisAlignment: MainAxisAlignment.start,
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [ Text(
-                              ' Age : ${snapshot.data![index].name}',
+                              ' Name : ${snapshot.data![index].name}',
                               style: TextStyle(
                                 fontSize: 20,
                                 fontWeight: FontWeight.bold,
@@ -120,7 +120,8 @@ class _MyAppState extends State<MyApp> {
                                 fontWeight: FontWeight.bold,
                               ),
                             ),
-                             Text("${snapshot.data![index].sayings}", style: TextStyle(
+                            SizedBox(height: 10),
+                             Text("Sayings:  ${snapshot.data![index].sayings}", style: TextStyle(
                           fontSize: 14,
                         ),
                         ),
