@@ -43,9 +43,9 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Fetch Data Example',
+      title: 'Daily News',
       theme: ThemeData(
-        primaryColor: Colors.lightBlueAccent,
+        primaryColor: Colors.white,
       ),
       home: Scaffold(
         appBar: AppBar(
@@ -70,70 +70,67 @@ class _MyAppState extends State<MyApp> {
                       mainAxisAlignment: MainAxisAlignment.start,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Row(
-                          children: [
-                            Card(
-                              semanticContainer: true,
-                              clipBehavior: Clip.antiAliasWithSaveLayer,
-                              child: Image.network(
-                                '${snapshot.data![index].url}',
-                                fit: BoxFit.cover,
-                              ),
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(10.0),
-                              ),
-                              elevation: 5,
-                              margin: EdgeInsets.all(10),
-                            ),
-                            Card(
-                              semanticContainer: true,
-                              clipBehavior: Clip.antiAliasWithSaveLayer,
-                              child:Padding(
-                                padding: const EdgeInsets.all(10.0),
-                                child: Column(
-                                  mainAxisAlignment: MainAxisAlignment.start,
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                      
-                                 Text(
-                                  ' Age : ${snapshot.data![index].age}',
-                                  style: TextStyle(
-                                    fontSize: 20,
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                                ),
-                                 Text(
-                                  ' Gender : ${snapshot.data![index].gender}',
-                                  style: TextStyle(
-                                    fontSize: 20,
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                                ),
-                                 Text(
-                                  ' Species : ${snapshot.data![index].species}',
-                                  style: TextStyle(
-                                    fontSize: 17,
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                                ),
-                                  ],
-                                ),
-                              )
-                              
-                               
-                            
-                            ),
-                          ],
-                        ),
-                        Text(
-                          "${snapshot.data![index].name}",
-                          style: TextStyle(
-                            fontSize: 18.0,
-                            fontWeight: FontWeight.bold,
+                        Card(
+                          semanticContainer: true,
+                          clipBehavior: Clip.antiAliasWithSaveLayer,
+                          child: Image.network(
+                            '${snapshot.data![index].url}',
+                            fit: BoxFit.cover,
                           ),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(10.0),
+                          ),
+                          elevation: 5,
+                          margin: EdgeInsets.all(10),
                         ),
+                        Card(
+                          semanticContainer: true,
+                          clipBehavior: Clip.antiAliasWithSaveLayer,
+                          child:Padding(
+                            padding: const EdgeInsets.all(10.0),
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [ Text(
+                              ' Age : ${snapshot.data![index].name}',
+                              style: TextStyle(
+                                fontSize: 20,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                                  
+                             Text(
+                              ' Age : ${snapshot.data![index].age}',
+                              style: TextStyle(
+                                fontSize: 20,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                             Text(
+                              ' Gender : ${snapshot.data![index].gender}',
+                              style: TextStyle(
+                                fontSize: 20,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                             Text(
+                              ' Species : ${snapshot.data![index].species}',
+                              style: TextStyle(
+                                fontSize: 17,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                             Text("${snapshot.data![index].sayings}", style: TextStyle(
+                          fontSize: 14,
+                        ),
+                        ),
+                              ],
+                            ),
+                          )                        
+                        ),
+
                         SizedBox(height: 10),
-                        Text("${snapshot.data![index].sayings}"),
+                       
                       ],
                     ),
                   ),
