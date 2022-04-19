@@ -1,35 +1,9 @@
 import 'dart:convert';
 
-// import 'dart:ffi';
-
-// import 'dart:ffi';
-
-List<Post> postFromJson(String str) =>
-    List<Post>.from(json.decode(str).map((x) => Post.fromMap(x)));
-
+ 
 List<newPost> newPostFromJson(String str) =>
     List<newPost>.from(json.decode(str).map((x) => newPost.fromMap(x)));
 
-class Post {
-  Post({
-    required this.userId,
-    required this.id,
-    required this.title,
-    required this.body,
-  });
-
-  int userId;
-  int id;
-  String title;
-  String body;
-
-  factory Post.fromMap(Map<String, dynamic> json) => Post(
-        userId: json["userId"],
-        id: json["id"],
-        title: json["title"],
-        body: json["body"],
-      );
-}
 
 class newPost {
   newPost({

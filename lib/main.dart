@@ -6,19 +6,16 @@ import 'package:http/http.dart' as http;
 import 'model/post_model.dart';
 
 Future<List<newPost>> fetchPost() async {
-  final response =
-      await http.get(Uri.parse('https://jsonplaceholder.typicode.com/posts'));
+  
   final respo = await http
       .get(Uri.parse('https://api.sampleapis.com/futurama/characters'));
-  // print(respo.body);
-
-  if (response.statusCode == 200) {
-    final parsed = json.decode(response.body).cast<Map<String, dynamic>>();
-    final pars = json.decode(respo.body).cast<Map<String, dynamic>>();
-    // print(pars);
+   
+  if (respo.statusCode == 200) {
+     final pars = json.decode(respo.body).cast<Map<String, dynamic>>();
+   
     return pars.map<newPost>((json) => newPost.fromMap(json)).toList();
 
-    //  parsed.map<Post>((json) => Post.fromMap(json)).toList();
+    
   } else {
     throw Exception('Failed to load album');
   }
@@ -55,7 +52,7 @@ class _MyAppState extends State<MyApp> {
           future: futurePost,
           builder: (context, snapshot) {
             if (snapshot.hasData) {
-              // print({snapshot.data![0].sayings});
+               
               return ListView.builder(
                 itemCount: snapshot.data!.length,
                 itemBuilder: (_, index) => Container(
